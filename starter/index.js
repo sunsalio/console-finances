@@ -125,7 +125,7 @@ var totalChange = 0;
 
 for (var i = 1; i < finances.length; i++) {
   var currentMonth = finances[i][1];
-  var previousMonth = finances[i-1][1];
+  var previousMonth = finances[i - 1][1];
   var difference = currentMonth - previousMonth;
   totalChange += difference;
 }
@@ -134,11 +134,34 @@ for (var i = 1; i < finances.length; i++) {
   
 var averageChange = totalChange/ (finances.length - 1); 
 
-console.log("Average Change: " + averageChange)
+console.log("Average Change: " + Math.round(averageChange * 100) / 100)
 
 
 
 // The greatest increase in profits (date and amount) over the entire period.
 
+// create a variable to store greatest increase in profit
+
+var greatestIncrease = {
+  date: null,
+  amount: 0
+};
+
+// iterate through finances array to calculate change in profit month to month
+for (var i = 1; i < finances.length; i++) {
+  var currentMonth = finances[i][1];
+  var previousMonth = finances[i - 1][1];
+  var difference = currentMonth - previousMonth;
+
+// compares each change to the greatest increase
+  if (difference > greatestIncrease.amount) {
+    greatestIncrease.amount = difference;
+    greatestIncrease.date = finances[i][0];
+  }
+}
+
+console.log("Greatest Increase in Profits: " + greatestIncrease.date + " $" + greatestIncrease.amount);
+
 
 // The greatest decrease in losses (date and amount) over the entire period.
+
