@@ -100,31 +100,42 @@ console.log("------------------------")
 
 // The net total amount of Profit/Losses over the entire period.
 
-     // Create a variable to store the sum
+// Create a variable to store the sum
 
-     var totalmula = 0;
+var totalmula = 0;
 
-     //Write a forloop that will iterate over the array specifically the sub array with the numbers only.
+//Write a forloop that will iterate over the array specifically the sub array with the numbers only [1].
 
-     for (var i = 0; i < finances.length; i++) {
-       totalmula += finances[i][1];
-     }
-    console.log("Total: $" + totalmula)
+for (var i = 0; i < finances.length; i++) {
+ totalmula += finances[i][1];
+}
+    
+    
+ console.log("Total: $" + totalmula)
   
 
 
 // The average of the changes in Profit/Losses over the entire period
 
-      // You will need to track what the total change in profits is from month to month. 
-      // current month - previous month
+// You will need to track what the total change in profits is from month to month. 
+// current month - previous month
 
-      
-      // then find the average.
 
-      // (Total/(Number of months - 1))
+var totalChange = 0;
 
-    
-      
+for (var i = 1; i < finances.length; i++) {
+  var currentMonth = finances[i][1];
+  var previousMonth = finances[i-1][1];
+  var difference = currentMonth - previousMonth;
+  totalChange += difference;
+}
+  
+// then find the average. (Total/(Number of months - 1))
+  
+var averageChange = totalChange/ (finances.length - 1); 
+
+console.log("Average Change: " + averageChange)
+
 
 
 // The greatest increase in profits (date and amount) over the entire period.
