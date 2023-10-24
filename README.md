@@ -13,7 +13,7 @@ filepath to screenshot of the html page showing console.
     ![alt text](/assets/images/Screenshot.png)
     ```
 
-Link to deployed application:
+Link to deployed application: https://sunsalio.github.io/console-finances/
 
 ## Credits
 Find sum of array: https://www.geeksforgeeks.org/how-to-find-the-sum-of-all-elements-of-a-given-array-in-javascript/
