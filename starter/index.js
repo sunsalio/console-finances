@@ -144,7 +144,7 @@ console.log("Average Change: " + Math.round(averageChange * 100) / 100)
 
 var greatestIncrease = {
   date: null,
-  amount: 0
+  amount: 0,
 };
 
 // iterate through finances array to calculate change in profit month to month
@@ -160,8 +160,26 @@ for (var i = 1; i < finances.length; i++) {
   }
 }
 
-console.log("Greatest Increase in Profits: " + greatestIncrease.date + " $" + greatestIncrease.amount);
+console.log("Greatest Increase in Profits: " + greatestIncrease.date + " ($" + greatestIncrease.amount + ")");
 
 
 // The greatest decrease in losses (date and amount) over the entire period.
+
+// a decrease in loss is effectively similar to increase in profit and so we subtract from the previous month 
+
+var greatestDecrease = {
+  date: null,
+  amount: 0,
+};
+for (var i = 1; i < finances.length; i++) {
+  var currentMonth = finances[i][1];
+  var previousMonth = finances[i - 1][1];
+  var difference = previousMonth - currentMonth;
+
+if (difference > greatestDecrease.amount) {
+  greatestDecrease.amount = difference;
+  greatestDecrease.date = finances[i][0];
+}
+}
+console.log("Greatest Decrease in Profits: " + greatestDecrease.date + " ($-" + greatestDecrease.amount + ")" );
 
